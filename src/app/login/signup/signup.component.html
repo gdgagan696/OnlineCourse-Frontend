@@ -1,0 +1,52 @@
+    <mat-card class="mat-card">
+        <mat-card-title class="info-color white-text text-center py-4">
+            <h5>
+                <strong>Sign Up</strong>
+            </h5>
+        </mat-card-title>
+        <mat-card-content >
+            <i>* mark fields are mandatory</i>
+    <form [formGroup]="signUpForm" class="signup">
+    <mat-form-field>
+        <input matInput placeholder="First Name*" formControlName="firstName">
+        <mat-error *ngIf="signUpForm.controls['firstName'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+        <mat-error *ngIf="signUpForm.controls['lastName'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Reg No*" formControlName="regNo">
+        <mat-error *ngIf="signUpForm.controls['regNo'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="E-mail*" formControlName="email">
+        <mat-error *ngIf="signUpForm.controls['email'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <mat-select placeholder="Your Role*" formControlName="roles">
+        <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="signUpForm.controls['roles'].invalid">{{ getErrorMessage() }}</mat-error>
+    
+</mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Username*" formControlName="userName">
+        <mat-error *ngIf="signUpForm.controls['userName'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field> 
+        <input type="password" placeholder="Password" matInput formControlName="password">
+        <mat-error *ngIf="signUpForm.controls['password'].invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    </form>
+    
+    
+        <button mat-raised-button color="primary" [disabled]="!signUpForm.valid" (click)="signUpUser(signUpForm.value)">Sign Up</button>
+        <p class="login">Already a member?
+            <a href="javascript:void 0;"(click)="logIn()">Login</a>
+          </p>   
+    </mat-card-content>
+    </mat-card>
+    <app-loading *ngIf="isLoading"></app-loading>
+    

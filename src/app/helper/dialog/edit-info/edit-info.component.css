@@ -1,0 +1,10 @@
+.mat-form-field{
+    display: block;
+    margin-top: 10px;
+    
+}
+
+.mat-raised-button{
+    min-width: 150px;
+    margin-top: 10px;
+}

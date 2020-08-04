@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{this.dialogHeader}}</h2>
+    <mat-dialog-content>
+        <form [formGroup]="formGroup">
+        <i>* mark fields are mandatory</i>
+    <mat-form-field *ngIf="isHidden">
+    <input matInput placeholder="Course Id" formControlName="courseId">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Course Name*" formControlName="courseName">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="Course Duration*" formControlName="courseDuration">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="Course Price*" formControlName="coursePrice">
+    </mat-form-field>
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" [mat-dialog-close]="formGroup.value" [disabled]="!formGroup.valid">Save</button>
+    <button mat-raised-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>
+
+
+

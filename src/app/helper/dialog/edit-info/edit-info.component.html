@@ -1,0 +1,40 @@
+<h5 mat-dialog-title class="info-color white-text text-center">
+            <strong>Edit Info</strong>
+        </h5>
+    <mat-dialog-content >
+        <i>* mark fields are mandatory</i>
+<form [formGroup]="editForm" class="editForm">
+<mat-form-field>
+    <input matInput placeholder="First Name*" formControlName="firstName">
+    <mat-error *ngIf="editForm.controls['firstName'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lastName">
+    <mat-error *ngIf="editForm.controls['lastName'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Reg No*" formControlName="regNo">
+    <mat-error *ngIf="editForm.controls['regNo'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="E-mail*" formControlName="email">
+    <mat-error *ngIf="editForm.controls['email'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+<mat-form-field>
+<mat-select placeholder="Your Role*" formControlName="roles">
+    <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
+</mat-select>
+<mat-error *ngIf="editForm.controls['roles'].invalid">{{ getErrorMessage() }}</mat-error>
+
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Username*" formControlName="userName">
+    <mat-error *ngIf="editForm.controls['userName'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" [mat-dialog-close]="editForm.value" [disabled]="!editForm.valid">Save</button>
+    <button mat-raised-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

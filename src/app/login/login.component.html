@@ -1,0 +1,29 @@
+    <mat-card class="mat-card">
+    <mat-card-title class="info-color white-text text-center py-4">
+        <h5>
+            <strong>Sign In</strong>
+        </h5>
+    </mat-card-title>
+    <mat-card-content >
+        <i>* mark fields are mandatory</i>
+<form [formGroup]="loginForm" class="login">
+<mat-form-field>
+    <input matInput placeholder="Username*" formControlName="userName">
+    <mat-error *ngIf="loginForm.controls['userName'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+
+<mat-form-field> 
+    <input type="password" placeholder="Password*" matInput formControlName="password">
+    <mat-error *ngIf="loginForm.controls['password'].invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+</form>
+
+
+    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="loginUser(loginForm.value)">Sign In</button>
+    <!-- <button mat-raised-button class="signup" color="primary" (click)="signUp()">SignUp </button> -->
+    <p class="signup">Not a member?
+        <a href="javascript:void 0;" (click)="signUp()">Register</a>
+      </p>   
+</mat-card-content>
+</mat-card>
+<app-loading *ngIf="isLoading"></app-loading>

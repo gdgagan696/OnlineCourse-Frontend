@@ -1,0 +1,27 @@
+<mat-accordion>
+    <mat-expansion-panel expanded=true>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="header">
+            <h4 class="header">User Info</h4>
+        </mat-panel-title>
+        <button mat-icon-button (click)="editUserInfo()">
+          <mat-icon>create</mat-icon>
+          <span>Edit</span>
+        </button>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+<mat-card>
+<ng-container *ngIf="isDataAvailable">
+<mat-card-content>
+<ng-container *ngFor="let user of userInfo | keyvalue">
+<div>
+    <span class="capitalize"><h4>{{user.key}}: </h4></span>
+    <span><h5>{{user.value}}</h5></span>
+</div>
+</ng-container>
+</mat-card-content>
+</ng-container>
+</mat-card>
+</mat-expansion-panel>
+</mat-accordion>
+<app-loading *ngIf="isLoading"></app-loading>

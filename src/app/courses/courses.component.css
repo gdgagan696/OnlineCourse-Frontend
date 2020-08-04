@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    margin: 10px 10px auto
+  }
+  
+  /* .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    margin: 50px 50 px auto
+  } */
+  .filter{
+    margin:10px;
+    font-size: 14px;
+    width: 50%;
+  }
+  ::ng-deep input.mat-input-element {
+    color: tomato;
+  }
+  .add-button{
+    background-color: brown;
+  }
+  

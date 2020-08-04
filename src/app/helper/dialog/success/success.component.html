@@ -1,0 +1,12 @@
+    <h2 mat-dialog-title>{{this.dialogHeader}}</h2>
+        <mat-dialog-content>
+            <p [innerHTML]="data['message']"></p>
+        </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" value="Yes" (click)="submitResponse($event.target.value)">OK</button>
+    </mat-dialog-actions>
+    
+    
+    
+    
+    
